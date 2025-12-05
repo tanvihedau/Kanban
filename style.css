@@ -11,7 +11,7 @@ html, body{
 :root{
     --bg-color: #0e0000;
     --bg-button-color: #413434;
-    --bg-task-color: #901e1e;
+    --bg-task-color: #484343;
     --primary-text-color: #e1d9d9;
 
     /*padding*/
@@ -85,14 +85,16 @@ section .task-column .heading{
     align-items: center;
     justify-content: space-between; 
 }
-section .task-column.task{
+section .task-column .task {
     background-color: var(--bg-task-color);
-    padding : var(--padding-m);
+    padding: var(--padding-m);
     border-radius: var(--border-radius-m);
     display: flex;
     flex-direction: column;
-    gap : var(--padding-m);   
+    gap: var(--padding-m);
 }
+
+
 section .task-column .task button{
     align-self : flex-end;
 }
