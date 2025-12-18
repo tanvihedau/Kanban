@@ -74,6 +74,8 @@ section{
 section .task-column{
     background-color: var(--bg-button-color);
     flex-grow: 1;
+    flex-shrink: 0;
+    width: 300px;
     padding : var(--padding-m);
     display: flex;
     flex-direction: column;
@@ -128,7 +130,7 @@ section .task-column .task button{
    justify-content: center;
    
 }
-.modal .active{
+.modal.active{
     display: flex;
 }
 .modal .bg{
