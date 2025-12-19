@@ -1,176 +1,159 @@
-*{
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html, body{
-    height : 100%;
-    width : 100%;
-    font-family : system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(
-    135deg,
-    #f9fbff,
-    #fde2f3,
-    #e0f2fe
-  );
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
 }
-:root{
-   --bg-color: #0b132b;          /* midnight blue */
-  --bg-button-color: #1c2541;   /* dark sky */
-  --bg-task-color: #2b3a67;     /* blue card */
+
+/* ---------- THEME ---------- */
+:root {
+  --bg-color: #0b132b;
+  --bg-button-color: #1c2541;
+  --bg-task-color: #2b3a67;
   --primary-text-color: #eaeaf0;
-  --delete-color: #ff9aa2;      /* soft coral pink */
+  --delete-color: #ff9aa2;
 
-    /*padding*/
-    --nav-padding: 15px 30px;
-    --section-padding:15px 30px;
-    --padding-s: 5px;
-    --padding-m: 10px;
-    --padding-l: 15px;
-    --padding-xl: 20px;
-    --padding-xxl : 30px;
+  --nav-padding: 15px 30px;
+  --section-padding: 15px 30px;
+  --p-s: 5px;
+  --p-m: 10px;
+  --p-l: 15px;
+  --p-xl: 20px;
+  --p-xxl: 30px;
 
-    /*border-radius variables*/
-    --border-radius-s: 5px;
-    --border-radius-m: 10px;
-    --border-radius-l: 15px;
-    --border-radius-xl: 20px;
-    --border-radius-xxl: 25px;
-
-}
-body{
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
-}
-main{
-    height : 100%;
-    display : flex;
-    flex-direction : column;
-}
-nav{
-padding : var(--nav-padding);
-display :flex;
-align-items: center;
-justify-content: space-between;
-position:sticky;
-top : 0;
-background-color: var(--bg-color);
-}
-nav button{
-  background-color : var(--bg-button-color);
-  border:none;
-  outline: none;
-  color : var(--primary-text-color);
-  padding : var(--padding-m) var(--padding-l);
-  cursor:pointer;
-  border-radius: var(--border-radius-m  );
-  transition: all 0.3s ease;
+  --radius: 10px;
 }
 
-nav button:hover{
-    background-color: var(--primary-text-color);
-    color : var(--bg-color);
-    transform: translateY(-2px);
+/* ---------- BASE ---------- */
+body {
+  background: var(--bg-color);
+  color: var(--primary-text-color);
 }
 
-section{
-    padding : var(--section-padding);
-    display:flex;
-    flex-grow: 1;
-    justify-content: space-between;
-    gap : var(--padding-xxl)
-}
-section .task-column{
-    background-color: var(--bg-button-color);
-    flex-grow: 1;
-    flex-shrink: 0;
-    width: 300px;
-    padding : var(--padding-m);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-m);
-    border-radius: var(--border-radius-m);
-    transition : all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-}
-section .task-column.hover-over{
-    border: 2px dashed var(--primary-text-color);
-    scale:1.05;
-
-}
-section .task-column .heading{
-    width: 100%;
-    display : flex;
-    align-items: center;
-    justify-content: space-between; 
-} 
-section .task-column .task {
-    background-color: var(--bg-task-color);
-    padding: var(--padding-m);
-    border-radius: var(--border-radius-m);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-m);
-    cursor: grab;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-section .task-column .task button{
-    align-self : flex-end;
-    cursor:pointer;
-    padding : var(--padding-s) var(--padding-m);
-    border-radius: var(--border-radius-m);
-    background-color: var(--delete-color);
-    color : var(--primary-text-color);
-    border:none;
-    outline:none
+/* ---------- NAV ---------- */
+nav {
+  padding: var(--nav-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--bg-color);
 }
-.modal{
-    position: fixed;
-    height: 100vh;
-    width: 100vw ;
-    top: 0;
-    left: 0;
-    display: none;
-   align-items: center;
-   justify-content: center;
+
+button {
+  background: var(--bg-button-color);
+  color: var(--primary-text-color);
+  padding: var(--p-m) var(--p-l);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s;
 }
-.modal.active{
-    display: flex;
+
+button:hover {
+  background: var(--primary-text-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
 }
-.modal .bg{
-    position: absolute;
-    height: 100%;
-    width: 100% ;
-    background-color: rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
+
+/* ---------- BOARD ---------- */
+section {
+  padding: var(--section-padding);
+  display: flex;
+  gap: var(--p-xxl);
+  flex-grow: 1;
 }
-.modal .center{
-    background-color : var(--bg-button-color);
-    padding : var(--padding-xxl);
-    border-radius: var(--border-radius-m);
-    display:flex;
-    flex-direction: column;
-    gap:var(--padding-m);
-    z-index: 10;
+
+.task-column {
+  background: var(--bg-button-color);
+  width: 300px;
+  padding: var(--p-m);
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  gap: var(--p-m);
+  border-radius: var(--radius);
+  transition: 0.4s;
 }
-.modal .center input, .modal .center textarea{
-    background-color: var(--bg-task-color);
-    border:none;
-    outline:none;
-    color : var(--primary-text-color);
-    padding : var(--padding-m);
-    border-radius: var(--border-radius-m);
-    resize: none;
-    font-family : inherit;
+
+.task-column.hover-over {
+  border: 2px dashed var(--primary-text-color);
+  scale: 1.05;
 }
-.modal .center button{
-    background-color : var(--bg-color);
-    border:var(--border-radius-m);
-    color : var(--primary-text-color);
-    padding : var(--padding-m) var(--padding-l);
-    cursor:pointer;
-    border-radius: var(--border-radius-m  );
-    width: auto;
- 
+
+.task-column .heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- TASK ---------- */
+.task {
+  background: var(--bg-task-color);
+  padding: var(--p-m);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--p-m);
+  cursor: grab;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.task button {
+  align-self: flex-end;
+  background: var(--delete-color);
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal .bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal .center {
+  background: var(--bg-button-color);
+  padding: var(--p-xxl);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--p-m);
+  z-index: 10;
+}
+
+.modal input,
+.modal textarea {
+  background: var(--bg-task-color);
+  color: var(--primary-text-color);
+  padding: var(--p-m);
+  border: none;
+  border-radius: var(--radius);
+  resize: none;
+  font-family: inherit;
 }
